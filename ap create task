@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>State Tax Calculator</title>
+
+  <body>
+    <form name="stateSelect">
+      <!sets value to options, tax rate to state>
+      Select which state you are purchasing from:
+            <select id="stateOptions" onchange="showData()">
+            <option value='.04'>Alabama</option>
+            <option value='0'>Alaska</option>
+            <option value='.0560'>Arizona</option>
+            <option value='.065'>Arkansas</option>
+            <option value='.0725'>California</option>
+            <option value='.029'>Colorado</option>
+            <option value='.0635'>Connecticut</option>
+            <option value='.0600'>Delaware</option>
+            <option value='0'>Florida</option>
+            <option value='.04'>Georgia</option>
+            <option value='.04'>Hawaii</option>
+            <option value='.06'>Idaho</option>
+            <option value='.0625'>Illinois</option>
+            <option value='.07'>Indiana</option>
+            <option value='.06'>Iowa</option>
+            <option value='.065'>Kansas</option>
+            <option value='.06'>Kentucky</option>
+            <option value='.0445'>Louisiana</option>
+            <option value='.055'>Maine</option>
+            <option value='.06'>Maryland</option>
+            <option value='.0625'>Massachusetts</option>
+            <option value='.06'>Michigan</option>
+            <option value='.06875'>Minnesota</option>
+            <option value='.07'>Mississippi</option>
+            <option value='.04225'>Missouri</option>
+            <option value='0'>Montana</option>
+            <option value='.055'>Nebraska</option>
+            <option value='.0685'>Nevada</option>
+            <option value='0'>New Hampshire</option>
+            <option value='.06625'>New Jersey</option>
+            <option value='.05125'>New Mexico</option>
+            <option value='.04'>New York</option>
+            <option value='.0475'>North Carolina</option>
+            <option value='.05'>North Dakota</option>
+            <option value='.0575'>Ohio</option>
+            <option value='.045'>Oklahoma</option>
+            <option value='0'>Oregon</option>
+            <option value='.06'>Pennsylvania</option>
+            <option value='.07'>Rhode Island</option>
+            <option value='.06'>South Carolina</option>
+            <option value='.045'>South Dakota</option>
+            <option value='.07'>Tennessee</option>
+            <option value='.0625'>Texas</option>
+            <option value='.061'>Utah</option>
+            <option value='.06'>Vermont</option>
+            <option value='.053'>Virginia</option>
+            <option value='.065'>Washington</option>
+            <option value='.06'>West Virginia</option>
+            <option value='.05'>Wisconsin</option>
+            <option value='.04'>Wyoming</option>
+          </select>
+        </form>
+
+        <p id="firstP">&nbsp;</p>
+
+    <script>
+
+    var firstP = document.getElementById('firstP');
+
+      function showData() {
+        //extracts value from option selected
+        var theSelect = stateSelect.stateOptions;
+        getPrice();
+        }
+
+    function getPrice() {
+      //asks the user for the price of their item
+      var theSelect = stateSelect.stateOptions;
+      var getUserPrice = prompt("What's the price of your retail item?");
+      var tax = (getUserPrice * theSelect[theSelect.selectedIndex].value);
+      var finalCost = parseFloat(tax) + parseFloat(getUserPrice);
+      finalCost = Math.round(finalCost * 100) / 100.00;
+      firstP.innerHTML = 'You have to pay: $'+ finalCost;
+
+      }
+
+        </script>
+
+
+  </body>
+</html>
